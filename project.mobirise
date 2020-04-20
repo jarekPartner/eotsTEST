@@ -847,109 +847,6 @@
         {
           "alias": false,
           "_styles": {
-            ".modal-dialog": {
-              "height": "auto"
-            },
-            ".hidden": {
-              "display": "none"
-            }
-          },
-          "_name": "design-block",
-          "_customHTML": "<section class=\"mbr-section\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"text\" title=\"Modal Name (single word)\" name=\"modalID\" value>\n        <select name=\"modalSize\" title=\"Size\" condition=\"modalID\">\n            <option value=\"small\">Small</option>\n            <option value=\"medium\" selected>Medium</option>\n            <option value=\"large\">Large</option>\n        </select>\n        <input type=\"checkbox\" title=\"Header\" name=\"modalHeader\" condition=\"modalID\" checked>\n        <input type=\"checkbox\" title=\"Footer\" name=\"modalFooter\" condition=\"modalID\" checked>\n        <input type=\"checkbox\" title=\"Close Button\" name=\"modalCloseBtn\" condition=\"modalID && modalFooter\" checked>\n        <input type=\"checkbox\" title=\"Additional Buttons\" name=\"modalMoreBtns\" condition=\"modalID && modalFooter\" checked>\n        <input type=\"checkbox\" title=\"Vertically Centered\" name=\"modalVertical\" condition=\"modalID\">\n        <input type=\"checkbox\" title=\"Fade Effect\" name=\"modalFade\" condition=\"modalID\" checked>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n<style>\n/* Let's not animate the contents of modal windows */\n.no-anim {\n    -webkit-animation: none !important;\n    -moz-animation: none !important;\n    -o-animation: none !important;\n    -ms-animation: none !important;\n    animation: none !important;\n}\n</style>\n\n<div mbr-class=\"{'hidden': isPublish}\" style=\"padding:1rem\" mbr-if=\"!modalID\">Click the \"gear\" icon to give your modal window an ID (use a single word only).</div>\n<div mbr-class=\"{'hidden': isPublish}\" style=\"padding:1rem\" mbr-if=\"modalID\">\n    <input type=\"button\" class=\"btn btn-primary display-4\" data-toggle=\"modal\" data-target=\"#{{modalID}}\" value=\"Preview {{modalID}}\">\n    <input type=\"button\" class=\"btn btn-primary display-4\" data-toggle=\"modal\" data-target=\"#{{modalID}}Help\" value=\"How to use\">\n    This preview button will be removed on preview/publish.\n</div>\n\n<div class=\"modal\" mbr-class=\"{'fade' : modalFade}\" id=\"{{modalID}}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"{{modalID}}Label\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\" mbr-class=\"{'modal-sm' : modalSize == 'small', 'modal-lg' : modalSize == 'large', 'modal-dialog-centered' : modalVertical}\" role=\"document\">\n        <div class=\"modal-content\">\n            <div class=\"modal-header\" mbr-if=\"modalHeader\">\n                <h5 class=\"no-anim modal-title\" id=\"{{modalID}}Label\">Modal title</h5>\n                <a href=\"#\" class=\"no-anim close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></a>\n            </div>\n            <p class=\"modal-body mbr-text align-left pb-3 mbr-fonts-style\" data-app-selector=\".mbr-text, .mbr-section-btn\">Modal body text goes here.</p>\n            <div class=\"modal-footer\" mbr-if=\"modalFooter\">\n                <div mbr-buttons mbr-theme-style=\"display-4\" class=\"mbr-section-btn\" mbr-if=\"modalMoreBtns\" data-toolbar=\"-mbrBtnMove\"><a href=\"#\" class=\"no-anim btn btn-secondary\" data-dismiss=\"modal\" data-app-placeholder=\"Type Text\">Close</a>\n                    <a href=\"#\" class=\"no-anim btn btn-md btn-black-outline\" data-app-placeholder=\"Type Text\">Open</a></div>\n            </div>\n        </div>\n    </div>\n</div>\n\n<div class=\"modal fade\" mbr-class=\"{'hidden': isPublish}\" id=\"{{modalID}}Help\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"{{modalID}}HelpLabel\" aria-hidden=\"true\" mbr-if=\"modalID\">\n    <div class=\"modal-dialog\" role=\"document\">\n        <div class=\"modal-content\">\n            <div class=\"modal-header\">\n                <div class=\"h5 no-anim modal-title\" id=\"{{modalID}}HelpLabel\">Modal title</div>\n                <a href=\"#\" class=\"no-anim close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></a>\n            </div>\n            <div class=\"modal-body\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n                Using your new modal is very easy. Simply create a new link, then click the \"...\" tab and enter the following as custom URL:<br><br>\n                <code>javascript:OpenModal('YourModalName')</code><br><br>\n                Replace 'YourModalName' with the name you chose.\n            </div>\n            <div class=\"modal-footer\">\n                <div mbr-theme-style=\"display-4\">\n                    <a href=\"#\" class=\"no-anim btn btn-secondary display-4\" data-dismiss=\"modal\">Close</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n<script>\nif (typeof OpenModal === 'undefined') {\n    OpenModal = function(modalName) {\n        if ($('#' + modalName).length)\n            $('#' + modalName).modal('show');\n    }\n}\n</script>    \n\n</section>",
-          "_cid": "zUd51F5hwJ",
-          "_anchor": "design-block-zUd51F5hwJ",
-          "_protectedParams": [],
-          "_global": false,
-          "_once": false,
-          "_params": {}
-        },
-        {
-          "alias": false,
-          "_styles": {
-            ".floating-bar": {
-              "position": "fixed",
-              "width": "60px",
-              "height": "60px",
-              "bottom": "40px",
-              "right": "40px",
-              "background-color": "@bgcolor",
-              "color": "@iconcolor",
-              "border-radius": "unit(@borderRadius, ~'%')",
-              "text-align": "center",
-              "& when (@shadow = true)": {
-                "box-shadow": "2px 2px 2px #999"
-              },
-              "& when (@transition = true)": {
-                "transition": "0.3s"
-              },
-              "z-index": "99999"
-            },
-            ".floating-bar:hover": {
-              "background-color": "@hovercolor"
-            },
-            ".floating-button": {
-              "color": "@iconcolor"
-            },
-            ".valign": {
-              "position": "relative",
-              "top": "50%",
-              "transform": "translateY(-50%)"
-            }
-          },
-          "_name": "design-block",
-          "_customHTML": "<section class=\"header1\" group=\"Headers\">\n    <mbr-parameters>\n       <!-- Block parameters controls (Blue \"Gear\" panel) -->\n       <input type=\"color\" title=\"Icon Color\" name=\"iconcolor\" value=\"#ffffff\">\n       <input type=\"color\" title=\"Background Color\" name=\"bgcolor\" value=\"#149dcc\">\n       <input type=\"color\" title=\"Hover Color\" name=\"hovercolor\" value=\"#4db6da\">\n       <input type=\"range\" inline title=\"Border Radius\" name=\"borderRadius\" min=\"0\" max=\"50\" step=\"10\" value=\"50\">\n       <input type=\"checkbox\" title=\"Shadow\" name=\"shadow\" checked>\n       <input type=\"checkbox\" title=\"Transition\" name=\"transition\" checked>\n       <!-- End block parameters -->\n    </mbr-parameters>\n\n    <a href=\"#\" class=\"floating-bar\">\n        <div class=\"valign\">\n            <span mbr-icon class=\"mbr-iconfont mbr-iconfont-btn floating-button socicon-mail socicon\"></span>\n        </div>        \n    </a>\n \n    <div class=\"remove-on-publish\" style=\"padding:1rem\">Click the \"gear\" icon to change the layout of the button. This text will be removed on preview/publish.</div>\n\n</section>",
-          "_cid": "kFfaBPZSb6",
-          "_anchor": "design-block-kFfaBPZSb6",
-          "_protectedParams": [],
-          "_global": false,
-          "_once": false,
-          "_params": {}
-        },
-        {
-          "alias": false,
-          "_styles": {
-            ".floating-bar": {
-              "position": "fixed",
-              "width": "60px",
-              "height": "60px",
-              "bottom": "40px",
-              "right": "40px",
-              "background-color": "@bgcolor",
-              "color": "@iconcolor",
-              "border-radius": "unit(@borderRadius, ~'%')",
-              "text-align": "center",
-              "& when (@shadow = true)": {
-                "box-shadow": "2px 2px 2px #999"
-              },
-              "& when (@transition = true)": {
-                "transition": "0.3s"
-              },
-              "z-index": "99999"
-            },
-            ".floating-bar:hover": {
-              "background-color": "@hovercolor"
-            },
-            ".floating-button": {
-              "color": "@iconcolor"
-            },
-            ".valign": {
-              "position": "relative",
-              "top": "50%",
-              "transform": "translateY(-50%)"
-            }
-          },
-          "_name": "design-block",
-          "_customHTML": "<section class=\"header1\" group=\"Headers\">\n    <mbr-parameters>\n       <!-- Block parameters controls (Blue \"Gear\" panel) -->\n       <input type=\"color\" title=\"Icon Color\" name=\"iconcolor\" value=\"#ffffff\">\n       <input type=\"color\" title=\"Background Color\" name=\"bgcolor\" value=\"#149dcc\">\n       <input type=\"color\" title=\"Hover Color\" name=\"hovercolor\" value=\"#4db6da\">\n       <input type=\"range\" inline title=\"Border Radius\" name=\"borderRadius\" min=\"0\" max=\"50\" step=\"10\" value=\"50\">\n       <input type=\"checkbox\" title=\"Shadow\" name=\"shadow\" checked>\n       <input type=\"checkbox\" title=\"Transition\" name=\"transition\" checked>\n       <!-- End block parameters -->\n    </mbr-parameters>\n\n    <a href=\"#\" class=\"floating-bar\">\n        <div class=\"valign\">\n            <span mbr-icon class=\"mbr-iconfont mbr-iconfont-btn floating-button socicon-mail socicon\"></span>\n        </div>        \n    </a>\n \n    <div class=\"remove-on-publish\" style=\"padding:1rem\">Click the \"gear\" icon to change the layout of the button. This text will be removed on preview/publish.</div>\n\n</section>",
-          "_cid": "9wruKHhnuv",
-          "_anchor": "design-block-9wruKHhnuv",
-          "_protectedParams": [],
-          "_global": false,
-          "_once": false,
-          "_params": {}
-        },
-        {
-          "alias": false,
-          "_styles": {
             "padding-top": "(@paddingTop * 15px)",
             "padding-bottom": "(@paddingBottom * 15px)",
             "& when (@bg-type = 'image')": {
@@ -962,17 +859,17 @@
           "_name": "footer6",
           "_customHTML": "<section group=\"Footers\" global=\"\" once=\"footers\" mbr-class=\"{'mbr-reveal': reveal, 'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline=\"\" title=\"Góra\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline=\"\" title=\"Dół\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"checkbox\" title=\"Efekt odsłaniania\" name=\"reveal\">\n        <fieldset type=\"background\" name=\"bg\" parallax=\"\">\n            <input type=\"image\" title=\"Obrazek\" value=\"../_images/background5.jpg\">\n            <input type=\"color\" title=\"Kolor ta\" value=\"#2e2e2e\" selected=\"\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Nakładka\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked=\"\">\n        <input type=\"color\" title=\"Kolor nakładki\" name=\"overlayColor\" value=\"#232323\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n        <input type=\"range\" inline=\"\" title=\"Przejrzystość\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.8\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div class=\"container\">\n        <div class=\"media-container-row align-center mbr-white\">\n            <div class=\"col-12\">\n                <p class=\"mbr-text mb-0 mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".media-container-row .mbr-text\" data-app-placeholder=\"Type Text\">\n                    © Copyright 2019 Mobirise - All Rights Reserved\n                </p>\n            </div>\n        </div>\n    </div>\n</section>\n",
           "_cid": "rWHyRRBvoz",
+          "_anchor": "footer6-h",
           "_protectedParams": [],
           "_global": true,
           "_once": "footers",
-          "_params": {},
-          "_anchor": "footer6-h"
+          "_params": {}
         }
       ]
     },
-    "page1.html": {
+    "privacy.html": {
       "settings": {
-        "meta_descr": "Website Builder Description",
+        "meta_descr": "Polityka Prywatności",
         "title": "privacy",
         "order": 1
       },

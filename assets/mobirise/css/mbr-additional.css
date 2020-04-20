@@ -1369,62 +1369,6 @@ section.lazy-placeholder:after {
     padding-bottom: 3rem;
   }
 }
-.cid-zUd51F5hwJ .modal-dialog {
-  height: auto;
-}
-.cid-zUd51F5hwJ .hidden {
-  display: none;
-}
-.cid-kFfaBPZSb6 .floating-bar {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  bottom: 40px;
-  right: 40px;
-  background-color: #149dcc;
-  color: #ffffff;
-  border-radius: 50%;
-  text-align: center;
-  box-shadow: 2px 2px 2px #999;
-  transition: 0.3s;
-  z-index: 99999;
-}
-.cid-kFfaBPZSb6 .floating-bar:hover {
-  background-color: #4db6da;
-}
-.cid-kFfaBPZSb6 .floating-button {
-  color: #ffffff;
-}
-.cid-kFfaBPZSb6 .valign {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.cid-9wruKHhnuv .floating-bar {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  bottom: 40px;
-  right: 40px;
-  background-color: #149dcc;
-  color: #ffffff;
-  border-radius: 50%;
-  text-align: center;
-  box-shadow: 2px 2px 2px #999;
-  transition: 0.3s;
-  z-index: 99999;
-}
-.cid-9wruKHhnuv .floating-bar:hover {
-  background-color: #4db6da;
-}
-.cid-9wruKHhnuv .floating-button {
-  color: #ffffff;
-}
-.cid-9wruKHhnuv .valign {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
 .cid-rWHyRRBvoz {
   padding-top: 30px;
   padding-bottom: 30px;
